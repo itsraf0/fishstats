@@ -1,0 +1,22 @@
+<div class="species-card">
+  <a href="{{ species.url }}" class="card-inner">
+    {% if species.gallery and species.gallery.length %}
+    <div class="card-image">
+      <img src="{{ species.gallery[0] }}" alt="{{ species.commonName }}">
+    </div>
+    {% endif %}
+    
+    <div class="card-content">
+      <h3>{{ species.commonName }}</h3>
+      <p class="scientific-name"><em>{{ species.scientificName }}</em></p>
+      
+      {% if species.tags and species.tags.length %}
+      <div class="tags">
+        {% for tag in species.tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </a>
+</div> 

@@ -1,0 +1,14 @@
+---
+layout: base.njk
+title: Non-Fish Animals
+description: Detailed profiles of aquarium non-fish animals
+permalink: /nonfish/
+---
+
+<h1>Non-Fish Aquatic Animals</h1>
+
+<div class="species-grid">
+  {% for species in collections.nonfish %}
+  {% include "species-card.njk" %}
+  {% endfor %}
+</div> 

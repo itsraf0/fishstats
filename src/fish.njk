@@ -1,0 +1,14 @@
+---
+layout: base.njk
+title: Fish Species
+description: Detailed profiles of aquarium fish species
+permalink: /fish/
+---
+
+<h1>Fish Species</h1>
+
+<div class="species-grid">
+  {% for species in collections.fish %}
+  {% include "species-card.njk" %}
+  {% endfor %}
+</div> 

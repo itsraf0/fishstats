@@ -1,0 +1,14 @@
+---
+layout: base.njk
+title: Invertebrates
+description: Detailed profiles of aquarium invertebrates
+permalink: /inverts/
+---
+
+<h1>Invertebrates</h1>
+
+<div class="species-grid">
+  {% for species in collections.inverts %}
+  {% include "species-card.njk" %}
+  {% endfor %}
+</div> 

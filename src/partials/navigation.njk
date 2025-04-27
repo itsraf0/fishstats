@@ -1,0 +1,12 @@
+<nav>
+  <ul>
+    <li><a href="/" class="site-title"><strong>FishStats</strong></a></li>
+  </ul>
+  <ul>
+    <li><a href="/fish/"{% if page.url and page.url.startsWith("/fish/") %} class="active"{% endif %}>Fish</a></li>
+    <li><a href="/inverts/"{% if page.url and page.url.startsWith("/inverts/") %} class="active"{% endif %}>Invertebrates</a></li>
+    <li><a href="/nonfish/"{% if page.url and page.url.startsWith("/nonfish/") %} class="active"{% endif %}>Non-Fish</a></li>
+    <li><a href="/snails/"{% if page.url and page.url.startsWith("/snails/") %} class="active"{% endif %}>Snails</a></li>
+    <li><a href="/plants/"{% if page.url and page.url.startsWith("/plants/") %} class="active"{% endif %}>Plants</a></li>
+  </ul>
+</nav> 

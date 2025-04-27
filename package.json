@@ -1,0 +1,22 @@
+{
+  "name": "fishstats",
+  "version": "1.0.0",
+  "description": "A data-driven static website for aquarium species profiles",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "rm -rf _site",
+    "validate": "node validate-species.js"
+  },
+  "keywords": ["aquarium", "fish", "species", "11ty", "static site"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  },
+  "devDependencies": {
+    "ajv": "^8.12.0",
+    "ajv-formats": "^2.1.1"
+  }
+}

@@ -1,0 +1,54 @@
+---
+layout: base.njk
+title: Home
+description: Detailed aquarium species profiles covering fish, invertebrates, plants, and more
+---
+
+<section class="hero">
+  <h1>FishStats</h1>
+  <p class="subtitle">Detailed aquarium species profiles</p>
+</section>
+
+<section class="categories">
+  <div class="category-grid">
+    <a href="/fish/" class="category-card">
+      <h2>Fish</h2>
+      <p>Explore aquarium fish species profiles</p>
+    </a>
+    
+    <a href="/inverts/" class="category-card">
+      <h2>Invertebrates</h2>
+      <p>Shrimp, crabs, and other invertebrates</p>
+    </a>
+    
+    <a href="/nonfish/" class="category-card">
+      <h2>Non-Fish</h2>
+      <p>Axolotls and other aquatic animals</p>
+    </a>
+    
+    <a href="/snails/" class="category-card">
+      <h2>Snails</h2>
+      <p>Aquarium snail species and varieties</p>
+    </a>
+    
+    <a href="/plants/" class="category-card">
+      <h2>Plants</h2>
+      <p>Aquatic plants for your aquarium</p>
+    </a>
+  </div>
+</section>
+
+<section class="featured">
+  <h2>Featured Species</h2>
+  
+  <div class="species-grid">
+    {% for species in collections.allSpecies | limit(6) %}
+    {% include "species-card.njk" %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="about">
+  <h2>About FishStats</h2>
+  <p>FishStats provides detailed information about aquarium species to help hobbyists make informed decisions about stocking and caring for their aquatic pets. Each profile includes information about water parameters, tank requirements, behavior, compatibility, and more.</p>
+</section> 

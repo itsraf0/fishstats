@@ -1,0 +1,14 @@
+---
+layout: base.njk
+title: Aquarium Snails
+description: Detailed profiles of aquarium snails
+permalink: /snails/
+---
+
+<h1>Aquarium Snails</h1>
+
+<div class="species-grid">
+  {% for species in collections.snails %}
+  {% include "species-card.njk" %}
+  {% endfor %}
+</div> 

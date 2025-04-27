@@ -1,0 +1,136 @@
+{
+  "id": "nerite_snail",
+  "commonName": "Nerite Snail",
+  "synonyms": ["Zebra Nerite", "Tiger Nerite", "Olive Nerite"],
+  "scientificName": "Neritina natalensis",
+  "taxonomy": {
+    "kingdom": "Animalia",
+    "phylum": "Mollusca",
+    "class": "Gastropoda",
+    "order": "Cycloneritida",
+    "family": "Neritidae",
+    "genus": "Neritina",
+    "species": "natalensis"
+  },
+  "distribution": {
+    "range": ["East Africa", "Southeast Asia"],
+    "mapImage": "/img/map/nerite-snail-range.jpg"
+  },
+  "description": "Nerite snails are among the most popular aquarium snails due to their excellent algae-eating capabilities and their inability to reproduce in freshwater. They come in various colorful patterns and help keep tanks clean by consuming algae and detritus. Their shells are smooth, round, and often feature striking black and yellow/gold patterns.",
+  "size": {
+    "max": {
+      "value": 2.5,
+      "unit": "cm"
+    },
+    "average": {
+      "value": 1.5,
+      "unit": "cm"
+    }
+  },
+  "lifespan": {
+    "typical": {
+      "value": 1,
+      "unit": "year"
+    },
+    "max": {
+      "value": 2,
+      "unit": "years"
+    }
+  },
+  "sexualDimorphism": "None visually apparent",
+  "habitat": {
+    "type": ["Freshwater streams", "Brackish water", "River mouths"],
+    "substrate": ["Rocky surfaces", "Driftwood", "Plants"]
+  },
+  "waterParameters": {
+    "temperature": {
+      "min": 22,
+      "max": 28,
+      "unit": "°C"
+    },
+    "pH": {
+      "min": 6.5,
+      "max": 8.5
+    },
+    "hardness": {
+      "min": 6,
+      "max": 12,
+      "unit": "dGH"
+    },
+    "ammonia": {
+      "max": 0,
+      "unit": "ppm"
+    },
+    "nitrite": {
+      "max": 0,
+      "unit": "ppm"
+    },
+    "nitrate": {
+      "max": 20,
+      "unit": "ppm"
+    }
+  },
+  "tankRequirements": {
+    "minimumVolume": {
+      "value": 10,
+      "unit": "L"
+    },
+    "recommendedVolume": {
+      "value": 20,
+      "unit": "L"
+    },
+    "aquascape": ["Hard surfaces for algae growth", "Plants", "Rocks", "Driftwood"],
+    "waterFlow": "Low to moderate",
+    "filtration": "Standard aquarium filtration"
+  },
+  "diet": {
+    "type": ["Herbivore", "Detritivore"],
+    "staple": ["Algae (especially brown and green)", "Biofilm"],
+    "supplements": ["Algae wafers", "Blanched vegetables (zucchini, spinach)"],
+    "feedingFrequency": {
+      "notes": "Constantly grazing; supplement only if algae growth is insufficient"
+    }
+  },
+  "behavior": {
+    "temperament": "Peaceful",
+    "social": "Non-social but can be kept in groups",
+    "territorial": "No",
+    "activity": "Active day and night, constantly grazing"
+  },
+  "compatibility": {
+    "suitableTankmates": ["Community fish", "Shrimp", "Other peaceful snails"],
+    "avoid": ["Snail-eating fish (puffers, loaches)", "Crayfish", "Large cichlids"]
+  },
+  "breeding": {
+    "type": "Egg layer",
+    "spawningBehavior": "Lays white, capsule-like eggs on hard surfaces",
+    "difficulty": "Cannot breed in freshwater - requires brackish to saltwater for larvae to develop",
+    "notes": "Eggs will not hatch in freshwater aquariums, making these snails non-invasive"
+  },
+  "health": {
+    "commonIssues": ["Shell erosion", "Sensitivity to copper"],
+    "treatments": ["Calcium supplements for shell health", "Avoid copper-based medications"],
+    "prevention": "Maintain proper water parameters, especially pH and hardness"
+  },
+  "careLevel": "Easy",
+  "price": {
+    "range": {
+      "min": 2,
+      "max": 5,
+      "currency": "USD"
+    },
+    "availability": "Common"
+  },
+  "gallery": [
+    "/img/species/nerite-snail-1.jpg",
+    "/img/species/nerite-snail-2.jpg"
+  ],
+  "tags": ["algae-eater", "freshwater", "non-invasive", "peaceful"],
+  "references": [
+    {
+      "title": "Nerite Snail Care Guide",
+      "url": "https://example.org/nerite-snail-care",
+      "accessed": "2023-05-18"
+    }
+  ]
+} 

@@ -1,0 +1,140 @@
+{
+  "id": "ghost_shrimp",
+  "commonName": "Ghost Shrimp",
+  "synonyms": ["Glass Shrimp", "Freshwater Prawn"],
+  "scientificName": "Palaemonetes paludosus",
+  "taxonomy": {
+    "kingdom": "Animalia",
+    "phylum": "Arthropoda",
+    "class": "Malacostraca",
+    "order": "Decapoda",
+    "family": "Palaemonidae",
+    "genus": "Palaemonetes",
+    "species": "paludosus"
+  },
+  "conservationStatus": {
+    "iucn": "Not Evaluated"
+  },
+  "distribution": {
+    "range": ["North America", "Southeastern United States"],
+    "mapImage": "/img/map/ghost-shrimp-range.jpg"
+  },
+  "description": "Ghost shrimp are small, transparent crustaceans that are popular in freshwater aquariums for their scavenging abilities and interesting behavior. Their translucent bodies allow you to see their internal organs, including their beating heart. They are excellent cleaners, consuming leftover food, algae, and detritus in the tank.",
+  "size": {
+    "max": {
+      "value": 5,
+      "unit": "cm"
+    },
+    "average": {
+      "value": 3.5,
+      "unit": "cm"
+    }
+  },
+  "lifespan": {
+    "typical": {
+      "value": 1,
+      "unit": "year"
+    },
+    "max": {
+      "value": 1.5,
+      "unit": "years"
+    }
+  },
+  "sexualDimorphism": "Females larger with curved abdomen for carrying eggs",
+  "habitat": {
+    "type": ["Freshwater", "Slow-moving streams", "Ponds", "Marshes"],
+    "substrate": ["Sandy bottom", "Plants", "Leaf litter"]
+  },
+  "waterParameters": {
+    "temperature": {
+      "min": 20,
+      "max": 26,
+      "unit": "°C"
+    },
+    "pH": {
+      "min": 7.0,
+      "max": 8.0
+    },
+    "hardness": {
+      "min": 5,
+      "max": 15,
+      "unit": "dGH"
+    },
+    "ammonia": {
+      "max": 0,
+      "unit": "ppm"
+    },
+    "nitrite": {
+      "max": 0,
+      "unit": "ppm"
+    },
+    "nitrate": {
+      "max": 20,
+      "unit": "ppm"
+    }
+  },
+  "tankRequirements": {
+    "minimumVolume": {
+      "value": 10,
+      "unit": "L"
+    },
+    "recommendedVolume": {
+      "value": 20,
+      "unit": "L"
+    },
+    "aquascape": ["Plants", "Driftwood", "Hiding places", "Leaf litter"],
+    "waterFlow": "Gentle",
+    "filtration": "Sponge filter (to prevent sucking up shrimplets)"
+  },
+  "diet": {
+    "type": ["Omnivore", "Scavenger"],
+    "staple": ["Algae", "Decaying plant matter", "Detritus"],
+    "supplements": ["Sinking pellets", "Blanched vegetables", "Commercial shrimp food"],
+    "feedingFrequency": {
+      "timesPerDay": 1,
+      "notes": "Will continuously graze throughout the day"
+    }
+  },
+  "behavior": {
+    "temperament": "Peaceful",
+    "social": "Semi-social; can be kept in groups",
+    "territorial": "No",
+    "activity": "Mostly active at night (nocturnal)"
+  },
+  "compatibility": {
+    "suitableTankmates": ["Small peaceful fish", "Other peaceful shrimp", "Snails"],
+    "avoid": ["Larger fish", "Aggressive fish", "Crayfish", "Most cichlids"]
+  },
+  "breeding": {
+    "type": "Egg-bearer",
+    "spawningBehavior": "Females carry eggs under their abdomen until hatching",
+    "difficulty": "Moderate",
+    "eggCare": "Females fan eggs with pleopods to provide oxygen",
+    "notes": "Larvae go through planktonic stage in freshwater. Higher survival rate in well-established tanks with biofilm."
+  },
+  "health": {
+    "commonIssues": ["Sensitive to copper", "Vulnerable to fish predation", "Poor water quality"],
+    "treatments": ["Avoid medications containing copper", "Regular water changes"]
+  },
+  "careLevel": "Easy",
+  "price": {
+    "range": {
+      "min": 1,
+      "max": 3,
+      "currency": "USD"
+    },
+    "availability": "Very Common"
+  },
+  "gallery": [
+    "/img/species/ghost-shrimp-1.jpg",
+    "/img/species/ghost-shrimp-2.jpg"
+  ],
+  "tags": ["freshwater", "peaceful", "scavenger", "transparent"],
+  "references": [
+    {
+      "title": "Ghost Shrimp Care Guide",
+      "url": "https://example.org/ghost-shrimp-care",
+      "accessed": "2023-05-15"
+    }
+  ]
+} 

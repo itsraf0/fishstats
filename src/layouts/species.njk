@@ -1,0 +1,390 @@
+---
+layout: base.njk
+---
+
+<article class="species-profile">
+  <header>
+    <h1>{{ species.commonName }}</h1>
+    <p class="scientific-name"><em>{{ species.scientificName }}</em></p>
+    {% if species.synonyms and species.synonyms.length %}
+    <p class="synonyms">Also known as: {{ species.synonyms | join(", ") }}</p>
+    {% endif %}
+    
+    {% if species.tags and species.tags.length %}
+    <div class="tags">
+      {% for tag in species.tags %}
+      <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </header>
+
+  {% if species.gallery and species.gallery.length %}
+  <div class="gallery">
+    <img src="{{ species.gallery[0] }}" alt="{{ species.commonName }}" class="main-image">
+    {% if species.gallery.length > 1 %}
+    <div class="thumbnails">
+      {% for image in species.gallery %}
+      <img src="{{ image }}" alt="{{ species.commonName }}" class="thumbnail">
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <div class="species-content">
+    {% if species.description %}
+    <section id="overview">
+      <h2>Overview</h2>
+      <p>{{ species.description }}</p>
+    </section>
+    {% endif %}
+
+    {% if species.taxonomy %}
+    <section id="taxonomy">
+      <h2>Taxonomy</h2>
+      <dl class="taxonomy-list">
+        {% if species.taxonomy.kingdom %}<dt>Kingdom:</dt><dd>{{ species.taxonomy.kingdom }}</dd>{% endif %}
+        {% if species.taxonomy.phylum %}<dt>Phylum:</dt><dd>{{ species.taxonomy.phylum }}</dd>{% endif %}
+        {% if species.taxonomy.class %}<dt>Class:</dt><dd>{{ species.taxonomy.class }}</dd>{% endif %}
+        {% if species.taxonomy.order %}<dt>Order:</dt><dd>{{ species.taxonomy.order }}</dd>{% endif %}
+        {% if species.taxonomy.family %}<dt>Family:</dt><dd>{{ species.taxonomy.family }}</dd>{% endif %}
+        {% if species.taxonomy.genus %}<dt>Genus:</dt><dd>{{ species.taxonomy.genus }}</dd>{% endif %}
+        {% if species.taxonomy.species and species.taxonomy.species != null %}<dt>Species:</dt><dd>{{ species.taxonomy.species }}</dd>{% endif %}
+      </dl>
+    </section>
+    {% endif %}
+
+    {% if species.distribution %}
+    <section id="distribution">
+      <h2>Distribution</h2>
+      {% if species.distribution.range and species.distribution.range.length %}
+      <p>Natural range: {{ species.distribution.range | join(", ") }}</p>
+      {% endif %}
+      {% if species.distribution.mapImage %}
+      <div class="map-image">
+        <img src="{{ species.distribution.mapImage }}" alt="Distribution map of {{ species.commonName }}">
+      </div>
+      {% endif %}
+    </section>
+    {% endif %}
+
+    <div class="stats-grid">
+      {% if species.size %}
+      <section id="size">
+        <h2>Size</h2>
+        <dl>
+          {% if species.size.average %}
+          <dt>Average:</dt>
+          <dd>{{ species.size.average.value }} {{ species.size.average.unit }}</dd>
+          {% endif %}
+          {% if species.size.max %}
+          <dt>Maximum:</dt>
+          <dd>{{ species.size.max.value }} {{ species.size.max.unit }}</dd>
+          {% endif %}
+        </dl>
+      </section>
+      {% endif %}
+
+      {% if species.lifespan %}
+      <section id="lifespan">
+        <h2>Lifespan</h2>
+        <dl>
+          {% if species.lifespan.typical %}
+          <dt>Typical:</dt>
+          <dd>{{ species.lifespan.typical.value }} {{ species.lifespan.typical.unit }}</dd>
+          {% endif %}
+          {% if species.lifespan.max %}
+          <dt>Maximum:</dt>
+          <dd>{{ species.lifespan.max.value }} {{ species.lifespan.max.unit }}</dd>
+          {% endif %}
+        </dl>
+      </section>
+      {% endif %}
+
+      {% if species.careLevel %}
+      <section id="care-level">
+        <h2>Care Level</h2>
+        <p>{{ species.careLevel }}</p>
+      </section>
+      {% endif %}
+    </div>
+
+    {% if species.sexualDimorphism %}
+    <section id="sexual-dimorphism">
+      <h2>Sexual Dimorphism</h2>
+      <p>{{ species.sexualDimorphism }}</p>
+    </section>
+    {% endif %}
+
+    {% if species.habitat %}
+    <section id="habitat">
+      <h2>Habitat</h2>
+      {% if species.habitat.type and species.habitat.type.length %}
+      <p>Type: {{ species.habitat.type | join(", ") }}</p>
+      {% endif %}
+      {% if species.habitat.depth %}
+      <p>Depth: {{ species.habitat.depth.min }} - {{ species.habitat.depth.max }} {{ species.habitat.depth.unit }}</p>
+      {% endif %}
+      {% if species.habitat.substrate and species.habitat.substrate.length %}
+      <p>Substrate: {{ species.habitat.substrate | join(", ") }}</p>
+      {% endif %}
+    </section>
+    {% endif %}
+
+    {% if species.waterParameters %}
+    <section id="water-parameters">
+      <h2>Water Parameters</h2>
+      <div class="parameters-grid">
+        {% if species.waterParameters.temperature %}
+        <div class="parameter">
+          <h3>Temperature</h3>
+          <p>{{ species.waterParameters.temperature.min }} - {{ species.waterParameters.temperature.max }} {{ species.waterParameters.temperature.unit }}</p>
+        </div>
+        {% endif %}
+        
+        {% if species.waterParameters.pH %}
+        <div class="parameter">
+          <h3>pH</h3>
+          <p>{{ species.waterParameters.pH.min }} - {{ species.waterParameters.pH.max }}</p>
+        </div>
+        {% endif %}
+        
+        {% if species.waterParameters.hardness %}
+        <div class="parameter">
+          <h3>Hardness</h3>
+          <p>{{ species.waterParameters.hardness.min }} - {{ species.waterParameters.hardness.max }} {{ species.waterParameters.hardness.unit }}</p>
+        </div>
+        {% endif %}
+        
+        {% if species.waterParameters.salinity %}
+        <div class="parameter">
+          <h3>Salinity</h3>
+          <p>{{ species.waterParameters.salinity.min }} - {{ species.waterParameters.salinity.max }} {{ species.waterParameters.salinity.unit }}</p>
+        </div>
+        {% endif %}
+      </div>
+      
+      <div class="parameters-grid">
+        {% if species.waterParameters.ammonia %}
+        <div class="parameter">
+          <h3>Ammonia</h3>
+          <p>Max: {{ species.waterParameters.ammonia.max }} {{ species.waterParameters.ammonia.unit }}</p>
+        </div>
+        {% endif %}
+        
+        {% if species.waterParameters.nitrite %}
+        <div class="parameter">
+          <h3>Nitrite</h3>
+          <p>Max: {{ species.waterParameters.nitrite.max }} {{ species.waterParameters.nitrite.unit }}</p>
+        </div>
+        {% endif %}
+        
+        {% if species.waterParameters.nitrate %}
+        <div class="parameter">
+          <h3>Nitrate</h3>
+          <p>Max: {{ species.waterParameters.nitrate.max }} {{ species.waterParameters.nitrate.unit }}</p>
+        </div>
+        {% endif %}
+      </div>
+    </section>
+    {% endif %}
+
+    {% if species.tankRequirements %}
+    <section id="tank-requirements">
+      <h2>Tank Requirements</h2>
+      <dl class="tank-requirements">
+        {% if species.tankRequirements.minimumVolume %}
+        <dt>Minimum Volume:</dt>
+        <dd>{{ species.tankRequirements.minimumVolume.value }} {{ species.tankRequirements.minimumVolume.unit }}</dd>
+        {% endif %}
+        
+        {% if species.tankRequirements.recommendedVolume %}
+        <dt>Recommended Volume:</dt>
+        <dd>{{ species.tankRequirements.recommendedVolume.value }} {{ species.tankRequirements.recommendedVolume.unit }}</dd>
+        {% endif %}
+        
+        {% if species.tankRequirements.shape %}
+        <dt>Tank Shape:</dt>
+        <dd>{{ species.tankRequirements.shape }}</dd>
+        {% endif %}
+        
+        {% if species.tankRequirements.waterFlow %}
+        <dt>Water Flow:</dt>
+        <dd>{{ species.tankRequirements.waterFlow }}</dd>
+        {% endif %}
+        
+        {% if species.tankRequirements.filtration %}
+        <dt>Filtration:</dt>
+        <dd>{{ species.tankRequirements.filtration }}</dd>
+        {% endif %}
+        
+        {% if species.tankRequirements.lighting %}
+        <dt>Lighting:</dt>
+        <dd>
+          {{ species.tankRequirements.lighting.type }}
+          {% if species.tankRequirements.lighting.photoperiod %}
+          ({{ species.tankRequirements.lighting.photoperiod.min }} - {{ species.tankRequirements.lighting.photoperiod.max }} {{ species.tankRequirements.lighting.photoperiod.unit }})
+          {% endif %}
+        </dd>
+        {% endif %}
+        
+        {% if species.tankRequirements.aquascape and species.tankRequirements.aquascape.length %}
+        <dt>Aquascape:</dt>
+        <dd>{{ species.tankRequirements.aquascape | join(", ") }}</dd>
+        {% endif %}
+      </dl>
+    </section>
+    {% endif %}
+
+    {% if species.diet %}
+    <section id="diet">
+      <h2>Diet</h2>
+      {% if species.diet.type and species.diet.type.length %}
+      <p>Type: {{ species.diet.type | join(", ") }}</p>
+      {% endif %}
+      
+      {% if species.diet.staple and species.diet.staple.length %}
+      <p><strong>Staple foods:</strong> {{ species.diet.staple | join(", ") }}</p>
+      {% endif %}
+      
+      {% if species.diet.supplements and species.diet.supplements.length %}
+      <p><strong>Supplements:</strong> {{ species.diet.supplements | join(", ") }}</p>
+      {% endif %}
+      
+      {% if species.diet.feedingFrequency %}
+      <p><strong>Feeding frequency:</strong> {{ species.diet.feedingFrequency.timesPerDay }} times per day</p>
+      {% if species.diet.feedingFrequency.notes %}
+      <p><em>{{ species.diet.feedingFrequency.notes }}</em></p>
+      {% endif %}
+      {% endif %}
+    </section>
+    {% endif %}
+
+    {% if species.behavior %}
+    <section id="behavior">
+      <h2>Behavior</h2>
+      <dl>
+        {% if species.behavior.temperament %}
+        <dt>Temperament:</dt>
+        <dd>{{ species.behavior.temperament }}</dd>
+        {% endif %}
+        
+        {% if species.behavior.social %}
+        <dt>Social:</dt>
+        <dd>{{ species.behavior.social }}</dd>
+        {% endif %}
+        
+        {% if species.behavior.territorial %}
+        <dt>Territorial:</dt>
+        <dd>{{ species.behavior.territorial }}</dd>
+        {% endif %}
+      </dl>
+    </section>
+    {% endif %}
+
+    {% if species.compatibility %}
+    <section id="compatibility">
+      <h2>Compatibility</h2>
+      {% if species.compatibility.suitableTankmates and species.compatibility.suitableTankmates.length %}
+      <p><strong>Suitable tankmates:</strong> {{ species.compatibility.suitableTankmates | join(", ") }}</p>
+      {% endif %}
+      
+      {% if species.compatibility.avoid and species.compatibility.avoid.length %}
+      <p><strong>Avoid:</strong> {{ species.compatibility.avoid | join(", ") }}</p>
+      {% endif %}
+    </section>
+    {% endif %}
+
+    {% if species.breeding %}
+    <section id="breeding">
+      <h2>Breeding</h2>
+      <dl>
+        {% if species.breeding.type %}
+        <dt>Type:</dt>
+        <dd>{{ species.breeding.type }}</dd>
+        {% endif %}
+        
+        {% if species.breeding.spawningBehavior %}
+        <dt>Spawning Behavior:</dt>
+        <dd>{{ species.breeding.spawningBehavior }}</dd>
+        {% endif %}
+        
+        {% if species.breeding.difficulty %}
+        <dt>Difficulty:</dt>
+        <dd>{{ species.breeding.difficulty }}</dd>
+        {% endif %}
+        
+        {% if species.breeding.eggCare %}
+        <dt>Egg Care:</dt>
+        <dd>{{ species.breeding.eggCare }}</dd>
+        {% endif %}
+        
+        {% if species.breeding.notes %}
+        <dt>Notes:</dt>
+        <dd>{{ species.breeding.notes }}</dd>
+        {% endif %}
+      </dl>
+    </section>
+    {% endif %}
+
+    {% if species.health %}
+    <section id="health">
+      <h2>Health</h2>
+      {% if species.health.commonDiseases and species.health.commonDiseases.length %}
+      <p><strong>Common diseases:</strong> {{ species.health.commonDiseases | join(", ") }}</p>
+      {% endif %}
+      
+      {% if species.health.treatments and species.health.treatments.length %}
+      <p><strong>Treatments:</strong> {{ species.health.treatments | join(", ") }}</p>
+      {% endif %}
+    </section>
+    {% endif %}
+
+    {% if species.price %}
+    <section id="price">
+      <h2>Price & Availability</h2>
+      {% if species.price.range %}
+      <p>Price range: {{ species.price.range.min }} - {{ species.price.range.max }} {{ species.price.range.currency }}</p>
+      {% endif %}
+      
+      {% if species.price.availability %}
+      <p>Availability: {{ species.price.availability }}</p>
+      {% endif %}
+    </section>
+    {% endif %}
+
+    {% if species.conservationStatus %}
+    <section id="conservation">
+      <h2>Conservation Status</h2>
+      <dl>
+        {% if species.conservationStatus.iucn %}
+        <dt>IUCN:</dt>
+        <dd>{{ species.conservationStatus.iucn }}</dd>
+        {% endif %}
+        
+        {% if species.conservationStatus.cites %}
+        <dt>CITES:</dt>
+        <dd>{{ species.conservationStatus.cites }}</dd>
+        {% endif %}
+      </dl>
+    </section>
+    {% endif %}
+
+    {% if species.references and species.references.length %}
+    <section id="references">
+      <h2>References</h2>
+      <ul>
+        {% for ref in species.references %}
+        <li>
+          <a href="{{ ref.url }}" target="_blank" rel="noopener">{{ ref.title }}</a>
+          {% if ref.accessed %}
+          <small>(Accessed: {{ ref.accessed }})</small>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+  </div>
+</article> 
