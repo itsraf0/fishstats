@@ -27,7 +27,7 @@ Your species JSON file must follow our schema. Required fields include:
 - `scientificName` - Scientific name of the species
 - `description` - A detailed description
 
-See `src/species/schema.json` for the full schema (template) and `src/species/fish/clownfish.json` for a complete example.
+See (src/species/schema.json)[https://github.com/itsraf0/fishstats/blob/main/src/species/schema.json] for the full schema (template) and (src/species/fish/clownfish.json)[https://github.com/itsraf0/fishstats/blob/main/src/species/schema.json] for a complete example.
 
 ### Tips for Great Contributions
 
