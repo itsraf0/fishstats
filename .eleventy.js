@@ -9,10 +9,17 @@ module.exports = function(eleventyConfig) {
 
   // Add year shortcode for copyright
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
-
+  
   // Add limit filter to use in templates
   eleventyConfig.addFilter("limit", function(array, limit) {
     return array.slice(0, limit);
+  });
+
+  // Add filter for filtering species by tag
+  eleventyConfig.addFilter("filterByTag", function(species, tag) {
+    return species.filter(item => {
+      return item.tags && Array.isArray(item.tags) && item.tags.includes(tag);
+    });
   });
 
   // Add a filter to format file paths
@@ -92,6 +99,26 @@ module.exports = function(eleventyConfig) {
       }));
     });
     return allSpecies;
+  });
+
+  // Add a collection for tags
+  eleventyConfig.addCollection("tagList", collection => {
+    const categories = ["fish", "nonfish", "inverts", "snails", "plants"];
+    let allSpecies = [];
+    categories.forEach(category => {
+      const speciesFiles = loadSpeciesFiles(category);
+      allSpecies = allSpecies.concat(speciesFiles);
+    });
+    
+    // Get all tags
+    let tagSet = new Set();
+    allSpecies.forEach(species => {
+      if (species.tags && Array.isArray(species.tags)) {
+        species.tags.forEach(tag => tagSet.add(tag));
+      }
+    });
+    
+    return Array.from(tagSet).sort();
   });
 
   // Configure 11ty

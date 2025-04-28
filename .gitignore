@@ -35,3 +35,6 @@ pids
 # OS files
 .DS_Store
 Thumbs.db 
+.DS_Store
+.Spotlight-V100
+.Trashes

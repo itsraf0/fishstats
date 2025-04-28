@@ -1,0 +1,35 @@
+---
+layout: base.njk
+pagination:
+  data: collections.tagList
+  size: 1
+  alias: tag
+permalink: /tags/{{ tag | slugify }}/
+eleventyComputed:
+  title: "Species tagged with '{{ tag }}'"
+---
+
+<div class="tag-page">
+  <h1>Species tagged with: <span class="highlight">{{ tag }}</span></h1>
+  
+  <div class="species-grid">
+    {% set taggedSpecies = collections.allSpecies | filterByTag(tag) %}
+    
+    {% for species in taggedSpecies %}
+    <a href="{{ species.url }}" class="species-card">
+      {% if species.gallery and species.gallery.length %}
+      <div class="species-image">
+        <img src="{{ species.gallery[0] }}" alt="{{ species.commonName }}">
+      </div>
+      {% endif %}
+      <div class="species-info">
+        <h2>{{ species.commonName }}</h2>
+        <p class="scientific-name"><em>{{ species.scientificName }}</em></p>
+        {% if species.careLevel %}
+        <p class="care-level">Care Level: {{ species.careLevel }}</p>
+        {% endif %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div> 
