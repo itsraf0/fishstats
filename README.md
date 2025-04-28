@@ -1,201 +1,54 @@
 # FishStats - Aquarium Species Profiles
 
-A static website built with [11ty](https://www.11ty.dev/) to provide detailed species profiles for aquarium owners, covering fish, invertebrates, non-fish aquatic animals, snails, and plants.
+## Contributing Species Data
 
-## 📝 Features
+Thank you for contributing to FishStats! This guide will help you add your own aquarium species profiles.
 
-- **Detailed Species Profiles**: Comprehensive information about aquarium species
-- **Data-driven**: Each species is stored as a JSON file
-- **Static Generation**: Fast, secure, and easily deployable
-- **Mobile-friendly**: Responsive design for all device sizes
-- **Modern UI**: Clean and easy-to-navigate interface
+### Quick Start
 
-## 🛠️ Getting Started
+1. Create a JSON file for your species in the appropriate directory:
+   - `src/species/fish/` - for fish species
+   - `src/species/inverts/` - for invertebrates
+   - `src/species/snails/` - for snail species
+   - `src/species/plants/` - for aquatic plants
+   - `src/species/nonfish/` - for other aquatic creatures
 
-### Prerequisites
+2. Name your file using the species common name in lowercase with hyphens instead of spaces (e.g., `neon-tetra.json`, `java-fern.json`).
 
-- [Node.js](https://nodejs.org/) (version 14 or later)
-- [npm](https://www.npmjs.com/) (comes with Node.js)
+3. Fill out the species data following the JSON schema format.
 
-### Installation
+4. Validate your file using `node validate-species.js` before submitting. A pull request check is in progress!
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/fishstats.git
-   cd fishstats
-   ```
+### JSON Format
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+Your species JSON file must follow our schema. Required fields include:
+- `id` - Unique identifier (same as filename without extension)
+- `commonName` - Common name of the species
+- `scientificName` - Scientific name of the species
+- `description` - A detailed description
 
-3. Start the development server:
-   ```bash
-   npm start
-   ```
-   
-   This will start a local development server at `http://localhost:8080`
+See `src/species/schema.json` for the full schema (template) and `src/species/fish/clownfish.json` for a complete example.
 
-### Building for production
+### Tips for Great Contributions
 
-To build the site for production:
+- Include detailed care information (water parameters, tank requirements)
+- Add feeding recommendations based on your experience
+- Provide accurate size and lifespan information
+- Include compatibility data with other species
+- Add references to sources where possible
 
-```bash
-npm run build
-```
+### Validation
 
-This generates the static site in the `_site` directory.
+Run `node validate-species.js` to check that your JSON file is valid before submitting. This will catch any formatting errors or missing required fields.
 
-## 📂 Project Structure
+### Images
 
-```
-/src
-  /species              # Species data in JSON format
-    /fish/              # Fish species
-    /nonfish/           # Non-fish species (e.g., axolotls)
-    /inverts/           # Invertebrates
-    /snails/            # Snails
-    /plants/            # Aquatic plants
-  /img/                 # Images folder
-    /species/           # Species images
-    /map/               # Distribution map images
-  /layouts/             # Page templates
-  /partials/            # Reusable template parts
-  /styles/              # CSS styles
-  index.njk             # Homepage
-  404.njk               # 404 page
-  fish.njk              # Fish listing page
-  plants.njk            # Plants listing page
-  inverts.njk           # Invertebrates listing page
-  nonfish.njk           # Non-fish listing page
-  snails.njk            # Snails listing page
-.eleventy.js            # 11ty configuration
-```
+If you have high-quality images, place them in the `src/img/species/` directory using the same ID as your JSON file (e.g., `neon-tetra-1.jpg`, `neon-tetra-2.jpg`).
 
-## 📊 Adding or Updating Species
+### Questions?
 
-### Adding a New Species
+If you have any questions about contributing, please open an issue or contact Raf (raf@itsraf.com or form on website).
 
-1. Determine the category for your species (fish, inverts, nonfish, snails, or plants)
-2. Create a new JSON file in the appropriate directory under `/src/species/`
-3. Name the file using lowercase letters and underscores (e.g., `clownfish.json`, `java_fern.json`)
-4. Fill in the JSON data following the schema (see example below)
-5. Add any images to `/src/img/species/` and, if applicable, map images to `/src/img/map/`
-6. Validate your JSON file using the validation script: `npm run validate`
-7. Commit and push your changes to GitHub, and the site will automatically deploy
+Thank you for helping build the FishStats database!
 
-### Validating Species JSON Files
-
-We include a validation tool to check that your species JSON files conform to the schema:
-
-```bash
-npm run validate
-```
-
-This will:
-- Check all JSON files in the species directories
-- Validate them against the schema in `src/species/schema.json`
-- Report any errors that need to be fixed
-- Exit with an error code if validation fails (useful for CI/CD pipelines)
-
-### JSON Schema Example
-
-Each species should follow this general structure:
-
-```json
-{
-  "id": "species_id",
-  "commonName": "Common Name",             
-  "synonyms": ["Alternate Name"],          
-  "scientificName": "Scientific Name",     
-  "taxonomy": {
-    "kingdom": "Animalia",
-    "phylum": "...",
-    "class": "...",
-    "order": "...",
-    "family": "...",
-    "genus": "...",
-    "species": "..."                       
-  },
-  "conservationStatus": {
-    "iucn": "Status",              
-    "cites": "Appendix"               
-  },
-  "distribution": {
-    "range": ["Region 1", "Region 2"], 
-    "coordinates": {                      
-      "lat": 0.0,
-      "lng": 0.0
-    },
-    "mapImage": "/img/map/species-range.jpg"
-  },
-  "description": "Detailed description...",
-  
-  // Additional fields...
-  
-  "gallery": [
-    "/img/species/species-1.jpg",
-    "/img/species/species-2.jpg"
-  ],
-  "tags": ["tag1", "tag2", "tag3"],
-  "references": [
-    {
-      "title": "Reference Title",
-      "url": "https://example.org/reference",
-      "accessed": "YYYY-MM-DD"
-    }
-  ]
-}
-```
-
-### Required Fields
-
-At minimum, each species should include:
-
-- `id`: Unique identifier (used in URLs)
-- `commonName`: Common name 
-- `scientificName`: Scientific name
-- `description`: Brief description
-
-All other fields are optional but recommended for completeness.
-
-### Image Recommendations
-
-- **Species Images**: 1200 × 800 pixels, JPG format
-- **Map Images**: 800 × 600 pixels, JPG format
-- Keep filenames consistent: `species-name-1.jpg`, `species-name-2.jpg`, etc.
-
-## 🚀 Deployment
-
-The site is configured to deploy to [Cloudflare Pages](https://pages.cloudflare.com/).
-
-1. Connect your GitHub repository to Cloudflare Pages
-2. Configure the build settings:
-   - Build command: `npm run build`
-   - Build output directory: `_site`
-   - Node.js version: `16` (or later)
-
-## 🧪 Local Development
-
-To develop locally:
-
-1. Start the development server:
-   ```bash
-   npm start
-   ```
-
-2. Make your changes
-3. The browser will auto-reload when files are saved
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request or open an issue.
-
----
-
-For questions or support, please open an issue on GitHub. 
+*p.s. thanks chatgpt for making my inchoherent mispelled ramballing readable*
