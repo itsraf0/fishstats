@@ -873,3 +873,193 @@ dd {
     background-color: rgba(15, 23, 42, 0.8);
   }
 }
+
+/* Fun Button and Effects */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.btn-fun {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  color: #333;
+  font-weight: bold;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.5rem 1.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-fun::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 10%, transparent 40%);
+  transform: rotate(30deg);
+  transition: all 0.6s ease;
+  opacity: 0;
+}
+
+.btn-fun:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #fad0c4, #ff9a9e);
+}
+
+.btn-fun:hover::before {
+  opacity: 1;
+  animation: shine 1.5s infinite;
+}
+
+.btn-fun.active {
+  background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+}
+
+/* Water overlay effect */
+.water-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 159, 218, 0.1);
+  pointer-events: none;
+  z-index: 999;
+  animation: wave 8s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%, 100% {
+    clip-path: polygon(
+      0% 45%,
+      16% 44%,
+      33% 50%,
+      54% 60%,
+      70% 61%,
+      84% 59%,
+      100% 52%,
+      100% 100%,
+      0% 100%
+    );
+  }
+  50% {
+    clip-path: polygon(
+      0% 60%,
+      15% 65%,
+      34% 66%,
+      51% 62%,
+      67% 50%,
+      84% 45%,
+      100% 46%,
+      100% 100%,
+      0% 100%
+    );
+  }
+}
+
+/* Bubbles/Fish animation */
+.fun-bubble {
+  position: fixed;
+  bottom: -20px;
+  font-size: 30px;
+  animation: bubbleRise linear forwards;
+  z-index: 1000;
+  pointer-events: none;
+  user-select: none;
+}
+
+@keyframes bubbleRise {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Rainbow text effect */
+.rainbow-text {
+  background-image: linear-gradient(90deg, 
+    #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+  background-size: 300% auto;
+  color: transparent !important;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: rainbow 6s linear infinite;
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+/* Wobble effect for images */
+.wobble-effect {
+  animation: wobble 3s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+@keyframes wobble {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(5deg) scale(1.05);
+  }
+  50% {
+    transform: rotate(-3deg) scale(1.05);
+  }
+  75% {
+    transform: rotate(3deg) scale(1.05);
+  }
+}
+
+/* Additional fun mode styling */
+.fun-mode {
+  transition: all 0.5s ease;
+}
+
+.fun-mode .container {
+  animation: gentle-bounce 3s ease-in-out infinite;
+}
+
+@keyframes gentle-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wobble-effect,
+  .fun-bubble,
+  .rainbow-text,
+  .water-overlay,
+  .fun-mode .container {
+    animation: none !important;
+    transform: none !important;
+  }
+}

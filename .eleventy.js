@@ -5,6 +5,7 @@ module.exports = function(eleventyConfig) {
   // Passthrough copy for images and styles
   eleventyConfig.addPassthroughCopy("./src/img");
   eleventyConfig.addPassthroughCopy("./src/styles");
+  eleventyConfig.addPassthroughCopy("./src/js");
   eleventyConfig.addPassthroughCopy({ "./_headers": "_headers" });
 
   // Add year shortcode for copyright
